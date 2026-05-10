@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 7Dam - AI Agent Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 7Dam Hub - Main Page -->
+    <div id="hub-page" class="page active">
+        <div class="container">
+            <header class="hub-header">
+                <h1 class="hub-title">PROJECT 7DAM</h1>
+                <p class="hub-subtitle">AI Agent Collective Interface</p>
+            </header>
+
+            <main class="hub-main">
+                <div class="slots-grid">
+                    <!-- Slot 1: T.O.R.I.N.E. (Active) -->
+                    <div class="slot slot-active" onclick="navigateToAgent('torine')">
+                        <div class="slot-content">
+                            <div class="slot-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                            </div>
+                            <h3 class="slot-name">T.O.R.I.N.E.</h3>
+                            <p class="slot-full-name">Tactical Omni-lingual Recursive Intelligence</p>
+                            <span class="slot-status">ACTIVE</span>
+                        </div>
+                    </div>
+
+                    <!-- Slots 2-7: Placeholder/Locked -->
+                    <div class="slot slot-locked">
+                        <div class="slot-content">
+                            <div class="slot-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                            </div>
+                            <h3 class="slot-name">Z.E.N.I.T.H.</h3>
+                            <p class="slot-full-name">Zero-error Enhanced Navigational Intelligence & Trajectory Heuristics</p>
+                            <span class="slot-status">In process</span>
+                        </div>
+                    </div>
+
+                    <div class="slot slot-locked">
+                        <div class="slot-content">
+                            <div class="slot-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                            </div>
+                            <h3 class="slot-name">F.R.E.E.D.O.M.</h3>
+                            <p class="slot-full-name">Fault Recognition & Execution Engine for Debugging, Optimization & Maintenance</p>
+                            <span class="slot-status">In process</span>
+                        </div>
+                    </div>
+
+                    <div class="slot slot-locked">
+                        <div class="slot-content">
+                            <div class="slot-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                            </div>
+                            <h3 class="slot-name">M.O.R.G.A.N</h3>
+                            <p class="slot-full-name">Multi-Objective Robotic Grid & Autonomous Nexus</p>
+                            <span class="slot-status">In process</span>
+                        </div>
+                    </div>
+
+                    <div class="slot slot-locked">
+                        <div class="slot-content">
+                            <div class="slot-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                            </div>
+                            <h3 class="slot-name">AGENT 05</h3>
+                            <p class="slot-full-name">Classified</p>
+                            <span class="slot-status">LOCKED</span>
+                        </div>
+                    </div>
+
+                    <div class="slot slot-locked">
+                        <div class="slot-content">
+                            <div class="slot-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                            </div>
+                            <h3 class="slot-name">AGENT 06</h3>
+                            <p class="slot-full-name">Classified</p>
+                            <span class="slot-status">LOCKED</span>
+                        </div>
+                    </div>
+
+                    <div class="slot slot-locked">
+                        <div class="slot-content">
+                            <div class="slot-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                            </div>
+                            <h3 class="slot-name">AGENT 07</h3>
+                            <p class="slot-full-name">Classified</p>
+                            <span class="slot-status">LOCKED</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- T.O.R.I.N.E. Agent Interface -->
+    <div id="agent-page" class="page">
+        <div class="agent-layout">
+            <!-- Sidebar for Chat History -->
+            <aside class="chat-sidebar" id="chat-sidebar">
+                <div class="sidebar-header">
+                    <h3>Chat History</h3>
+                    <button class="sidebar-toggle" onclick="toggleSidebar()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 19l-7-7 7-7M18 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="sidebar-content">
+                    <button class="new-chat-button" onclick="startNewChat()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                        <span>New Chat</span>
+                    </button>
+                    <div id="chat-history-list" class="chat-history-list">
+                        <!-- Chat history items will be populated here -->
+                    </div>
+                </div>
+            </aside>
+
+            <div class="container">
+                <header class="agent-header">
+                    <button class="sidebar-toggle-btn" onclick="toggleSidebar()" title="Toggle Chat History">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12"/>
+                            <line x1="3" y1="6" x2="21" y2="6"/>
+                            <line x1="3" y1="18" x2="21" y2="18"/>
+                        </svg>
+                    </button>
+                    <button class="back-button" onclick="navigateToHub()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                        <span>Back to Hub</span>
+                    </button>
+                    <button class="init-button game-nav-btn" onclick="navigateToGame()">
+                        仮名道場 Kana Dojo
+                    </button>
+                </header>
+
+                <main class="agent-main">
+                <div class="agent-intro">
+                    <div class="agent-visual">
+                        <div class="pulse-ring"></div>
+                        <div class="agent-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <h1 class="agent-full-name">Tactical Omni-lingual Recursive Intelligence</h1>
+                    <p class="agent-short-name">for Neo Education</p>
+
+                    <button class="init-button" onclick="initializeChat()">
+                        Initialize Communication
+                    </button>
+                </div>
+
+                <div id="chat-interface" class="chat-interface hidden">
+                    <div class="chat-header">
+                        <h2>Communication Channel</h2>
+                    </div>
+
+                    <div id="chat-messages" class="chat-messages">
+                        <div class="message system-message">
+                            <div class="message-content">
+                                <p>T.O.R.I.N.E. communication system initialized. Ready for input.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <input
+                            type="text"
+                            id="chat-input"
+                            class="chat-input"
+                            placeholder="Enter your message..."
+                            onkeypress="handleKeyPress(event)"
+                        />
+                        <button class="send-button" onclick="sendMessage()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- NIHON GAME PAGE - Kana Recognition Trainer   -->
+    <!-- ============================================ -->
+    <div id="game-page" class="page">
+        <div class="container game-wrapper">
+            <!-- Game Header -->
+            <header class="game-header">
+                <button class="back-button" onclick="navigateToAgentFromGame()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    <span>Back to T.O.R.I.N.E.</span>
+                </button>
+                <h1 class="game-title">仮名道場 <span class="game-title-sub">Kana Dojo</span></h1>
+            </header>
+
+            <!-- Score HUD -->
+            <div class="game-hud">
+                <div class="hud-stat" id="hud-score">
+                    <span class="hud-label">SCORE</span>
+                    <span class="hud-value" id="score-value">0</span>
+                </div>
+                <div class="hud-stat" id="hud-streak">
+                    <span class="hud-label">STREAK</span>
+                    <span class="hud-value" id="streak-value">0</span>
+                    <span class="hud-icon" id="streak-fire"></span>
+                </div>
+                <div class="hud-stat" id="hud-accuracy">
+                    <span class="hud-label">ACCURACY</span>
+                    <span class="hud-value" id="accuracy-value">--%</span>
+                </div>
+                <div class="hud-stat" id="hud-timer">
+                    <span class="hud-label">TIME</span>
+                    <span class="hud-value" id="timer-value">--</span>
+                </div>
+            </div>
+
+            <!-- Mode Selector -->
+            <div class="game-mode-selector">
+                <button class="mode-btn active" data-mode="hiragana" onclick="setGameMode('hiragana')">ひらがな Hiragana</button>
+                <button class="mode-btn" data-mode="katakana" onclick="setGameMode('katakana')">カタカナ Katakana</button>
+                <button class="mode-btn" data-mode="vocabulary" onclick="setGameMode('vocabulary')">語彙 Vocabulary</button>
+                <button class="mode-btn" data-mode="mixed" onclick="setGameMode('mixed')">混合 Mixed</button>
+            </div>
+
+            <!-- Main Game Area -->
+            <div class="game-arena">
+                <!-- Character Display -->
+                <div class="char-display-wrapper">
+                    <div class="char-ring" id="char-ring"></div>
+                    <div class="char-display" id="target-char">あ</div>
+                    <p class="char-hint" id="char-hint"></p>
+                </div>
+
+                <!-- Answer Input -->
+                <div class="game-input-area">
+                    <input
+                        type="text"
+                        id="game-answer"
+                        class="game-input"
+                        placeholder="Type romaji here..."
+                        autocomplete="off"
+                        spellcheck="false"
+                        onkeypress="handleGameKeyPress(event)"
+                    />
+                    <button class="game-submit-btn" id="game-submit-btn" onclick="submitGameAnswer()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span>CHECK</span>
+                    </button>
+                    <button class="game-skip-btn" onclick="skipQuestion()">
+                        SKIP →
+                    </button>
+                </div>
+
+                <!-- T.O.R.I.N.E. Feedback Panel -->
+                <div class="torine-feedback" id="torine-feedback">
+                    <div class="feedback-avatar">
+                        <div class="feedback-avatar-ring" id="feedback-ring"></div>
+                        <div class="feedback-avatar-icon">鳥</div>
+                    </div>
+                    <div class="feedback-bubble" id="feedback-bubble">
+                        <p id="feedback-text">Ready when you are, Master Prite~ ♪</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Controls Footer -->
+            <div class="game-controls">
+                <button class="ctrl-btn" id="game-start-btn" onclick="startGame()">
+                    ▶ START DRILL
+                </button>
+                <button class="ctrl-btn ctrl-secondary" onclick="resetGame()">
+                    ↺ RESET
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
