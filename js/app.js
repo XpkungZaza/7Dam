@@ -188,9 +188,6 @@ function toggleSidebar() {
 // ========================================
 // NAVIGATION SYSTEM
 // ========================================
-// ========================================
-// NAVIGATION SYSTEM
-// ========================================
 
 /**
  * Navigate from Hub to Agent Interface
@@ -588,8 +585,6 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('PROJECT 7DAM - T.O.R.I.N.E. AGENT');
     console.log('=================================');
     console.log('System initialized. Awaiting user interaction.');
-    console.log('API Key:', GROQ_API_KEY ? 'Configured' : 'Not configured');
-    console.log('Model:', GROQ_MODEL);
 
     // Add smooth transition styles to pages
     const pages = document.querySelectorAll('.page');
@@ -600,13 +595,78 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load chat history on page load
     renderChatHistory();
 
-    // Test speech synthesis availability
+    // Initialize particle canvas
+    initParticleCanvas();
+
     if ('speechSynthesis' in window) {
         console.log('✅ Speech synthesis available');
     } else {
         console.warn('⚠️  Speech synthesis not available');
     }
 });
+
+// ========================================
+// PARTICLE CANVAS BACKGROUND
+// ========================================
+
+function initParticleCanvas() {
+    const canvas = document.getElementById('particle-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const PARTICLE_COUNT = 50;
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+            r: Math.random() * 1.5 + 0.5,
+            alpha: Math.random() * 0.4 + 0.1
+        });
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0) p.x = canvas.width;
+            if (p.x > canvas.width) p.x = 0;
+            if (p.y < 0) p.y = canvas.height;
+            if (p.y > canvas.height) p.y = 0;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(99, 102, 241, ${p.alpha})`;
+            ctx.fill();
+        });
+        // Draw connections
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 120) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(99, 102, 241, ${0.06 * (1 - dist / 120)})`;
+                    ctx.stroke();
+                }
+            }
+        }
+        requestAnimationFrame(draw);
+    }
+    draw();
+}
 
 // ========================================
 // ERROR HANDLING
@@ -620,21 +680,7 @@ window.addEventListener('unhandledrejection', function(event) {
     console.error('Unhandled promise rejection:', event.reason);
 });
 
-// ========================================
-// EXPORT FOR MODULE USAGE (if needed)
-// ========================================
-
-// If using as a module, export functions
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        navigateToAgent,
-        navigateToHub,
-        initializeChat,
-        sendMessage,
-        handleGeminiChat,
-        torineSpeak
-    };
-}
+// (exports moved to end of file)
 
 // ========================================
 // KANA DOJO - GAME ENGINE
@@ -890,6 +936,27 @@ function serveNextQuestion() {
 // ---- Game Start / Reset ----
 
 function startGame() {
+    const btn = document.getElementById('game-start-btn');
+
+    // Toggle pause/resume if already active
+    if (gameState.active) {
+        gameState.active = false;
+        if (gameState.timerInterval) { clearInterval(gameState.timerInterval); gameState.timerInterval = null; }
+        btn.textContent = '▶ RESUME';
+        setFeedbackMessage("Taking a break? Don't be too long, Master~ ♪", 'neutral');
+        return;
+    }
+
+    // Resume if paused (has existing score)
+    if (gameState.totalAnswered > 0) {
+        gameState.active = true;
+        startTimer();
+        btn.textContent = '⏸ PAUSE';
+        setFeedbackMessage("Welcome back! Let's continue~ ♪", 'neutral');
+        return;
+    }
+
+    // Fresh start
     gameState.active = true;
     gameState.score = 0;
     gameState.streak = 0;
@@ -904,11 +971,9 @@ function startGame() {
     updateHUD();
     startTimer();
 
-    // Update UI
-    document.getElementById('game-start-btn').textContent = '⏸ PAUSE';
+    btn.textContent = '⏸ PAUSE';
     setFeedbackMessage("Let's begin, Master Prite! Show me what you've got~ ♪", 'neutral');
     torineSpeak("さあ、始めましょう!");
-
     console.log('Kana Dojo started');
 }
 
@@ -1071,7 +1136,6 @@ function updateHUD() {
 function startTimer() {
     if (gameState.timerInterval) clearInterval(gameState.timerInterval);
 
-    gameState.elapsedSeconds = 0;
     gameState.timerInterval = setInterval(() => {
         gameState.elapsedSeconds++;
         const mins = Math.floor(gameState.elapsedSeconds / 60);
