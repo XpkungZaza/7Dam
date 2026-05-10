@@ -4,21 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 7Dam - AI Agent Hub</title>
+    <meta name="description" content="Project 7Dam - AI Agent Collective Interface. T.O.R.I.N.E. Tactical Omni-lingual Recursive Intelligence for Neo Education.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Animated Background Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
     <!-- 7Dam Hub - Main Page -->
     <div id="hub-page" class="page active">
         <div class="container">
             <header class="hub-header">
-                <h1 class="hub-title">PROJECT 7DAM</h1>
+                <div class="hub-badge">CLASSIFIED • LEVEL 7</div>
+                <h1 class="hub-title">PROJECT <span class="glow-text">7DAM</span></h1>
                 <p class="hub-subtitle">AI Agent Collective Interface</p>
+                <div class="hub-divider"></div>
             </header>
 
             <main class="hub-main">
                 <div class="slots-grid">
                     <!-- Slot 1: T.O.R.I.N.E. (Active) -->
-                    <div class="slot slot-active" onclick="navigateToAgent('torine')">
+                    <div class="slot slot-active" id="slot-torine" onclick="navigateToAgent('torine')">
+                        <div class="slot-glow"></div>
                         <div class="slot-content">
                             <div class="slot-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -32,7 +42,7 @@
                         </div>
                     </div>
 
-                    <!-- Slots 2-7: Placeholder/Locked -->
+                    <!-- Slot 2: Z.E.N.I.T.H. -->
                     <div class="slot slot-locked">
                         <div class="slot-content">
                             <div class="slot-icon">
@@ -47,6 +57,7 @@
                         </div>
                     </div>
 
+                    <!-- Slot 3: F.R.E.E.D.O.M. -->
                     <div class="slot slot-locked">
                         <div class="slot-content">
                             <div class="slot-icon">
@@ -61,6 +72,7 @@
                         </div>
                     </div>
 
+                    <!-- Slot 4: M.O.R.G.A.N -->
                     <div class="slot slot-locked">
                         <div class="slot-content">
                             <div class="slot-icon">
@@ -75,6 +87,7 @@
                         </div>
                     </div>
 
+                    <!-- Slots 5-7: Classified -->
                     <div class="slot slot-locked">
                         <div class="slot-content">
                             <div class="slot-icon">
@@ -164,7 +177,7 @@
                         <span>Back to Hub</span>
                     </button>
                     <button class="init-button game-nav-btn" onclick="navigateToGame()">
-                        仮名道場 Kana Dojo
+                        <span class="btn-icon">🎯</span> 仮名道場 Kana Dojo
                     </button>
                 </header>
 
@@ -172,6 +185,7 @@
                 <div class="agent-intro">
                     <div class="agent-visual">
                         <div class="pulse-ring"></div>
+                        <div class="pulse-ring pulse-ring-2"></div>
                         <div class="agent-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"/>
@@ -183,14 +197,17 @@
                     <h1 class="agent-full-name">Tactical Omni-lingual Recursive Intelligence</h1>
                     <p class="agent-short-name">for Neo Education</p>
 
-                    <button class="init-button" onclick="initializeChat()">
-                        Initialize Communication
+                    <button class="init-button" id="init-comm-btn" onclick="initializeChat()">
+                        <span class="btn-icon">⚡</span> Initialize Communication
                     </button>
                 </div>
 
                 <div id="chat-interface" class="chat-interface hidden">
                     <div class="chat-header">
-                        <h2>Communication Channel</h2>
+                        <div class="chat-header-status">
+                            <div class="status-dot"></div>
+                            <h2>Communication Channel</h2>
+                        </div>
                     </div>
 
                     <div id="chat-messages" class="chat-messages">
@@ -235,7 +252,10 @@
                     </svg>
                     <span>Back to T.O.R.I.N.E.</span>
                 </button>
-                <h1 class="game-title">仮名道場 <span class="game-title-sub">Kana Dojo</span></h1>
+                <h1 class="game-title">
+                    <span class="game-title-jp">仮名道場</span>
+                    <span class="game-title-sub">Kana Dojo</span>
+                </h1>
             </header>
 
             <!-- Score HUD -->
