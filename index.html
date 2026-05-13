@@ -179,6 +179,9 @@
                     <button class="init-button game-nav-btn" onclick="navigateToGame()">
                         <span class="btn-icon">🎯</span> 仮名道場 Kana Dojo
                     </button>
+                    <button class="init-button game-nav-btn kanji-nav-btn" onclick="navigateToKanjiDojo()">
+                        <span class="btn-icon">🏯</span> 漢字道場 Kanji N5
+                    </button>
                 </header>
 
                 <main class="agent-main">
@@ -342,6 +345,157 @@
         </div>
     </div>
 
+    <!-- ============================================ -->
+    <!-- KANJI N5 DOJO PAGE                           -->
+    <!-- ============================================ -->
+    <div id="kanji-page" class="page">
+        <div class="container game-wrapper kanji-wrapper">
+            <!-- Kanji Header -->
+            <header class="game-header">
+                <button class="back-button" onclick="navigateToAgentFromKanji()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    <span>Back to T.O.R.I.N.E.</span>
+                </button>
+                <h1 class="game-title">
+                    <span class="game-title-jp kanji-title-gradient">漢字道場</span>
+                    <span class="game-title-sub">Kanji N5 Dojo</span>
+                </h1>
+            </header>
+
+            <!-- Kanji HUD -->
+            <div class="game-hud kanji-hud">
+                <div class="hud-stat" id="kanji-hud-score">
+                    <span class="hud-label">SCORE</span>
+                    <span class="hud-value" id="kanji-score-value">0</span>
+                </div>
+                <div class="hud-stat" id="kanji-hud-streak">
+                    <span class="hud-label">STREAK</span>
+                    <span class="hud-value" id="kanji-streak-value">0</span>
+                    <span class="hud-icon" id="kanji-streak-fire"></span>
+                </div>
+                <div class="hud-stat" id="kanji-hud-level">
+                    <span class="hud-label">LEVEL</span>
+                    <span class="hud-value" id="kanji-level-value">N5</span>
+                </div>
+                <div class="hud-stat" id="kanji-hud-progress">
+                    <span class="hud-label">MASTERED</span>
+                    <span class="hud-value" id="kanji-progress-value">0/80</span>
+                </div>
+            </div>
+
+            <!-- Category Selector -->
+            <div class="game-mode-selector kanji-category-selector">
+                <button class="mode-btn kanji-cat-btn active" data-cat="all" onclick="setKanjiCategory('all')">全部 All</button>
+                <button class="mode-btn kanji-cat-btn" data-cat="numbers" onclick="setKanjiCategory('numbers')">数 Numbers</button>
+                <button class="mode-btn kanji-cat-btn" data-cat="time" onclick="setKanjiCategory('time')">時 Time</button>
+                <button class="mode-btn kanji-cat-btn" data-cat="people" onclick="setKanjiCategory('people')">人 People</button>
+                <button class="mode-btn kanji-cat-btn" data-cat="nature" onclick="setKanjiCategory('nature')">自然 Nature</button>
+                <button class="mode-btn kanji-cat-btn" data-cat="actions" onclick="setKanjiCategory('actions')">動 Actions</button>
+                <button class="mode-btn kanji-cat-btn" data-cat="adjectives" onclick="setKanjiCategory('adjectives')">形 Adjectives</button>
+            </div>
+
+            <!-- Quiz Mode Toggle -->
+            <div class="kanji-quiz-mode">
+                <button class="quiz-mode-btn active" data-qmode="reading" onclick="setKanjiQuizMode('reading')">
+                    <span class="qm-icon">あ</span> Reading
+                </button>
+                <button class="quiz-mode-btn" data-qmode="meaning" onclick="setKanjiQuizMode('meaning')">
+                    <span class="qm-icon">📖</span> Meaning
+                </button>
+                <button class="quiz-mode-btn" data-qmode="mixed" onclick="setKanjiQuizMode('mixed')">
+                    <span class="qm-icon">🔀</span> Mixed
+                </button>
+            </div>
+
+            <!-- Main Kanji Arena -->
+            <div class="game-arena kanji-arena">
+                <!-- Kanji Display -->
+                <div class="kanji-display-wrapper">
+                    <div class="kanji-ring" id="kanji-ring"></div>
+                    <div class="kanji-char" id="kanji-target">日</div>
+                    <div class="kanji-info-strip">
+                        <span class="kanji-info-tag" id="kanji-tag-type">Kunyomi</span>
+                        <span class="kanji-info-tag" id="kanji-tag-strokes">4 strokes</span>
+                    </div>
+                </div>
+
+                <!-- Kanji Readings & Meaning Display (shown after answer) -->
+                <div class="kanji-detail-panel" id="kanji-detail-panel">
+                    <div class="kanji-detail-row">
+                        <span class="detail-label">音読み (Onyomi)</span>
+                        <span class="detail-value" id="kanji-onyomi">ニチ・ジツ</span>
+                    </div>
+                    <div class="kanji-detail-row">
+                        <span class="detail-label">訓読み (Kunyomi)</span>
+                        <span class="detail-value" id="kanji-kunyomi">ひ・び</span>
+                    </div>
+                    <div class="kanji-detail-row">
+                        <span class="detail-label">Meaning</span>
+                        <span class="detail-value" id="kanji-meaning-display">day, sun</span>
+                    </div>
+                    <div class="kanji-detail-row">
+                        <span class="detail-label">Example</span>
+                        <span class="detail-value" id="kanji-example">日本 (にほん) - Japan</span>
+                    </div>
+                </div>
+
+                <!-- Answer Input -->
+                <div class="game-input-area kanji-input-area">
+                    <div class="kanji-question-prompt" id="kanji-question-prompt">
+                        Type the reading of this kanji:
+                    </div>
+                    <input
+                        type="text"
+                        id="kanji-answer"
+                        class="game-input kanji-input"
+                        placeholder="Type your answer..."
+                        autocomplete="off"
+                        spellcheck="false"
+                        onkeypress="handleKanjiKeyPress(event)"
+                    />
+                    <div class="kanji-btn-row">
+                        <button class="game-submit-btn kanji-submit-btn" id="kanji-submit-btn" onclick="submitKanjiAnswer()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>CHECK</span>
+                        </button>
+                        <button class="game-skip-btn" onclick="skipKanjiQuestion()">
+                            SKIP →
+                        </button>
+                        <button class="kanji-reveal-btn" id="kanji-reveal-btn" onclick="revealKanjiAnswer()">
+                            👁 REVEAL
+                        </button>
+                    </div>
+                </div>
+
+                <!-- T.O.R.I.N.E. Feedback Panel -->
+                <div class="torine-feedback kanji-feedback" id="kanji-torine-feedback">
+                    <div class="feedback-avatar">
+                        <div class="feedback-avatar-ring" id="kanji-feedback-ring"></div>
+                        <div class="feedback-avatar-icon kanji-sensei-icon">先</div>
+                    </div>
+                    <div class="feedback-bubble" id="kanji-feedback-bubble">
+                        <p id="kanji-feedback-text">Welcome to the Kanji Dojo, darling~ Let Sensei guide you through these beautiful characters. ♪</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Controls -->
+            <div class="game-controls">
+                <button class="ctrl-btn kanji-start-btn" id="kanji-start-btn" onclick="startKanjiGame()">
+                    ▶ START TRAINING
+                </button>
+                <button class="ctrl-btn ctrl-secondary" onclick="resetKanjiGame()">
+                    ↺ RESET
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script src="js/app.js"></script>
+    <script src="js/kanji.js"></script>
 </body>
 </html>
