@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 7Dam - AI Agent Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="Frey_AI/frey-dashboard.css">
+</head>
+<body>
+    <!-- 7Dam Hub - Main Page -->
+    <div id="hub-page" class="page active">
+        <div class="container">
+            <header class="hub-header">
+                <h1 class="hub-title">PROJECT ETADAM</h1>
+                <p class="hub-subtitle">AI Agent Collective Interface</p>
+            </header>
+
+            <main class="hub-main">
+                <div class="slots-grid">
+                    <!-- Slot 1: T.O.R.I.N.E. (Active) -->
+                    <div class="slot slot-active" onclick="navigateToAgent('torine')">
+                        <div class="slot-content">
+                            <div class="slot-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                            </div>
+                            <h3 class="slot-name">T.O.R.I.N.E.</h3>
+                            <p class="slot-full-name">Tactical Omni-lingual Recursive Intelligence</p>
+                            <span class="slot-status">ACTIVE</span>
+                        </div>
+                    </div>
+
+                    <!-- Slots 2-7: Placeholder/Locked -->
+                    <div class="slot slot-locked">
+                        <div class="slot-content">
+                            <div class="slot-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                            </div>
+                            <h3 class="slot-name">Z.E.N.I.T.H.</h3>
+                            <p class="slot-full-name">Zero-error Enhanced Navigational Intelligence & Trajectory Heuristics</p>
+                            <span class="slot-status">In process</span>
+                        </div>
+                    </div>
+
+                    <div class="slot slot-locked">
+                        <div class="slot-content">
+                            <div class="slot-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                            </div>
+                            <h3 class="slot-name">F.R.E.E.D.O.M.</h3>
+                            <p class="slot-full-name">Fault Recognition & Execution Engine for Debugging, Optimization & Maintenance</p>
+                            <span class="slot-status">In process</span>
+                        </div>
+                    </div>
+
+                    <div class="slot slot-locked">
+                        <div class="slot-content">
+                            <div class="slot-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                            </div>
+                            <h3 class="slot-name">M.O.R.G.A.N</h3>
+                            <p class="slot-full-name">Multi-Objective Robotic Grid & Autonomous Nexus</p>
+                            <span class="slot-status">In process</span>
+                        </div>
+                    </div>
+
+                    <div class="slot slot-locked">
+                        <div class="slot-content">
+                            <div class="slot-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                            </div>
+                            <h3 class="slot-name">AGENT 05</h3>
+                            <p class="slot-full-name">Graduation Project AI (Classified)</p>
+                            <span class="slot-status">LOCKED</span>
+                        </div>
+                    </div>
+
+                    <!-- Slot 6: F.R.E.Y. (Active - Market Intelligence) -->
+                    <div class="slot slot-active" onclick="navigateToAgent('frey')">
+                        <div class="slot-content">
+                            <div class="slot-icon" style="background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%); color: white;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                                    <polyline points="16 7 22 7 22 13"/>
+                                </svg>
+                            </div>
+                            <h3 class="slot-name">F.R.E.Y.</h3>
+                            <p class="slot-full-name">Fault-tolerant Responsive Execution Yield (XAU, BTC, EUR, ETH AI)</p>
+                            <span class="slot-status">ACTIVE</span>
+                        </div>
+                    </div>
+
+                    <div class="slot slot-locked">
+                        <div class="slot-content">
+                            <div class="slot-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                            </div>
+                            <h3 class="slot-name">AGENT 07</h3>
+                            <p class="slot-full-name">Classified</p>
+                            <span class="slot-status">LOCKED</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- T.O.R.I.N.E. Agent Interface -->
+    <div id="agent-page" class="page">
+        <div class="agent-layout">
+            <!-- Sidebar for Chat History -->
+            <aside class="chat-sidebar" id="chat-sidebar">
+                <div class="sidebar-header">
+                    <h3>Chat History</h3>
+                    <button class="sidebar-toggle" onclick="toggleSidebar()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 19l-7-7 7-7M18 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="sidebar-content">
+                    <button class="new-chat-button" onclick="startNewChat()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                        <span>New Chat</span>
+                    </button>
+                    <div id="chat-history-list" class="chat-history-list">
+                        <!-- Chat history items will be populated here -->
+                    </div>
+                </div>
+            </aside>
+
+            <div class="container">
+                <header class="agent-header">
+                    <button class="sidebar-toggle-btn" onclick="toggleSidebar()" title="Toggle Chat History">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12"/>
+                            <line x1="3" y1="6" x2="21" y2="6"/>
+                            <line x1="3" y1="18" x2="21" y2="18"/>
+                        </svg>
+                    </button>
+                    <button class="back-button" onclick="navigateToHub()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                        <span>Back to Hub</span>
+                    </button>
+                </header>
+
+                <main class="agent-main">
+                <div class="agent-intro">
+                    <div class="agent-visual">
+                        <div class="pulse-ring"></div>
+                        <div class="agent-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <h1 class="agent-full-name">Tactical Omni-lingual Recursive Intelligence</h1>
+                    <p class="agent-short-name">for Neo Education</p>
+
+                    <button class="init-button" onclick="initializeChat()">
+                        Initialize Communication
+                    </button>
+                </div>
+
+                <div id="chat-interface" class="chat-interface hidden">
+                    <div class="chat-header">
+                        <h2>Communication Channel</h2>
+                    </div>
+
+                    <div id="chat-messages" class="chat-messages">
+                        <div class="message system-message">
+                            <div class="message-content">
+                                <p>T.O.R.I.N.E. communication system initialized. Ready for input.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <input
+                            type="text"
+                            id="chat-input"
+                            class="chat-input"
+                            placeholder="Enter your message..."
+                            onkeypress="handleKeyPress(event)"
+                        />
+                        <button class="send-button" onclick="sendMessage()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- F.R.E.Y. Agent Interface (Market Intelligence & Trading Dashboard) -->
+    <div id="frey-agent-page" class="page">
+        <div class="container" style="max-width: 1350px;">
+            <header class="agent-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <button class="back-button" onclick="navigateToHub()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    <span>Back to 7Dam Hub</span>
+                </button>
+                <div style="font-size: 0.85rem; color: #64748b;">
+                    Agent 06 / Zeta: <strong style="color: #38bdf8;">F.R.E.Y. Market AI</strong>
+                </div>
+            </header>
+
+            <main class="frey-dashboard">
+                <!-- Dashboard Top Bar -->
+                <div class="frey-header">
+                    <div class="frey-title-group">
+                        <div class="frey-avatar-orb">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+                                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                                <polyline points="16 7 22 7 22 13"/>
+                            </svg>
+                        </div>
+                        <div class="frey-title-text">
+                            <h2>F.R.E.Y. MARKET INTELLIGENCE</h2>
+                            <p>Real-Time Quantitative Probability & Risk Execution Engine</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                        <div class="frey-asset-switch" id="frey-asset-switch">
+                            <button class="frey-asset-btn active" data-symbol="XAUUSD" onclick="switchFreyAsset('XAUUSD')">
+                                <span class="asset-btn-icon">🪙</span>
+                                <span class="asset-btn-name">XAUUSD</span>
+                                <span class="asset-btn-tag">Gold</span>
+                            </button>
+                            <button class="frey-asset-btn" data-symbol="BTCUSD" onclick="switchFreyAsset('BTCUSD')">
+                                <span class="asset-btn-icon">₿</span>
+                                <span class="asset-btn-name">BTCUSD</span>
+                                <span class="asset-btn-tag">Bitcoin</span>
+                            </button>
+                            <button class="frey-asset-btn" data-symbol="EURUSD" onclick="switchFreyAsset('EURUSD')">
+                                <span class="asset-btn-icon">💶</span>
+                                <span class="asset-btn-name">EURUSD</span>
+                                <span class="asset-btn-tag">Forex</span>
+                            </button>
+                            <button class="frey-asset-btn" data-symbol="ETHUSD" onclick="switchFreyAsset('ETHUSD')">
+                                <span class="asset-btn-icon">⚡</span>
+                                <span class="asset-btn-name">ETHUSD</span>
+                                <span class="asset-btn-tag">Crypto</span>
+                            </button>
+                        </div>
+                        <div class="frey-live-badge">
+                            <span class="pulse-dot"></span>
+                            <span id="frey-feed-source">LIVE REAL-TIME FEED</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Overview Bar -->
+                <div class="frey-stats-bar">
+                    <div class="frey-stat-box">
+                        <div class="frey-stat-label">Real Live Price</div>
+                        <div class="frey-stat-val accent" id="frey-stat-price">--</div>
+                    </div>
+                    <div class="frey-stat-box">
+                        <div class="frey-stat-label">Real Trend Bias (EMA 20/50)</div>
+                        <div class="frey-stat-val bullish" id="frey-stat-trend">--</div>
+                    </div>
+                    <div class="frey-stat-box">
+                        <div class="frey-stat-label">RSI (14 Real Momentum)</div>
+                        <div class="frey-stat-val" id="frey-stat-rsi">--</div>
+                    </div>
+                    <div class="frey-stat-box">
+                        <div class="frey-stat-label">ATR Volatility (14)</div>
+                        <div class="frey-stat-val" id="frey-stat-atr">--</div>
+                    </div>
+                </div>
+
+                <!-- Main Grid Layout -->
+                <div class="frey-grid">
+                    <!-- Left: Interactive Chart & Confluence -->
+                    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                        <div class="frey-card">
+                            <div class="frey-card-header" style="flex-wrap: wrap; gap: 10px;">
+                                <h3>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
+                                        <line x1="18" y1="20" x2="18" y2="10"/>
+                                        <line x1="12" y1="20" x2="12" y2="4"/>
+                                        <line x1="6" y1="20" x2="6" y2="14"/>
+                                    </svg>
+                                    Live Price Action & EMA Overlays
+                                </h3>
+
+                                <!-- Timeframe Selector Bar -->
+                                <div class="frey-tf-bar">
+                                    <button class="frey-tf-btn" data-tf="1m" onclick="switchFreyTimeframe('1m')">1m</button>
+                                    <button class="frey-tf-btn" data-tf="5m" onclick="switchFreyTimeframe('5m')">5m</button>
+                                    <button class="frey-tf-btn active" data-tf="15m" onclick="switchFreyTimeframe('15m')">15m</button>
+                                    <button class="frey-tf-btn" data-tf="30m" onclick="switchFreyTimeframe('30m')">30m</button>
+                                    <button class="frey-tf-btn" data-tf="1h" onclick="switchFreyTimeframe('1h')">1h</button>
+                                    <button class="frey-tf-btn" data-tf="4h" onclick="switchFreyTimeframe('4h')">4h</button>
+                                    <button class="frey-tf-btn" data-tf="1d" onclick="switchFreyTimeframe('1d')">1d</button>
+                                </div>
+
+                                <!-- Quick Convenience Toolbar -->
+                                <div class="frey-chart-tools">
+                                    <button class="frey-tool-btn" id="btn-copy-plan" onclick="copyTradePlan()" title="Copy Trade Plan (Entry, SL, TP1, TP2) to Clipboard">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                        </svg>
+                                        <span>Copy Plan</span>
+                                    </button>
+                                    <button class="frey-tool-btn" id="btn-audio-toggle" onclick="toggleAudioAlerts()" title="Toggle Web Audio Chime Alerts">
+                                        <span id="audio-icon">🔊</span>
+                                        <span id="audio-label">Chime On</span>
+                                    </button>
+                                    <button class="frey-tool-btn" id="btn-fs-toggle" onclick="toggleFullscreenChart()" title="Toggle Fullscreen Chart View">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                                            <polyline points="15 3 21 3 21 9"></polyline>
+                                            <polyline points="9 21 3 21 3 15"></polyline>
+                                            <line x1="21" y1="3" x2="14" y2="10"></line>
+                                            <line x1="3" y1="21" x2="10" y2="14"></line>
+                                        </svg>
+                                        <span>Expand</span>
+                                    </button>
+                                </div>
+
+                                <div style="font-size: 0.75rem; color: #94a3b8; display: flex; gap: 10px;">
+                                    <span style="color: #38bdf8;">— EMA 20</span>
+                                    <span style="color: #a855f7;">— EMA 50</span>
+                                    <span style="color: #f59e0b;">— RSI (14)</span>
+                                </div>
+                            </div>
+                            <div class="chart-container" id="frey-chart-container">
+                                <div class="chart-overlay-info">
+                                    <div class="chart-overlay-item">Live Close: <span id="chart-overlay-close" style="color: #38bdf8;">--</span></div>
+                                    <div class="chart-overlay-item">RSI (14): <span id="chart-overlay-rsi" style="color: #f59e0b;">--</span></div>
+                                </div>
+                                <div id="frey-chart-tooltip" class="frey-chart-tooltip hidden"></div>
+                                <canvas id="frey-canvas-chart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Multi-Timeframe Confluence & AI Insights -->
+                        <div class="frey-card">
+                            <div class="frey-card-header">
+                                <h3>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M12 16v-4M12 8h.01"/>
+                                    </svg>
+                                    Dual-Horizon Radar & Quantitative Plan
+                                </h3>
+                            </div>
+
+                            <!-- Dual Horizon Overview -->
+                            <div class="dual-horizon-box">
+                                <div class="horizon-panel">
+                                    <div class="horizon-header">
+                                        <span>🏛️ Long-Term (Macro H1/H4)</span>
+                                        <span id="dh-macro-trend" style="color: #34d399;">BULLISH</span>
+                                    </div>
+                                    <div class="horizon-metric-row">
+                                        <span>Structure Regime:</span>
+                                        <strong id="dh-macro-regime">TRENDING</strong>
+                                    </div>
+                                    <div class="horizon-metric-row">
+                                        <span>Key S/R Levels:</span>
+                                        <strong id="dh-macro-sr">Sup: -- | Res: --</strong>
+                                    </div>
+                                </div>
+
+                                <div class="horizon-panel">
+                                    <div class="horizon-header">
+                                        <span>⚡ Short-Term (Micro M5/M15)</span>
+                                        <span id="dh-micro-trigger" style="color: #38bdf8;">PULLBACK</span>
+                                    </div>
+                                    <div class="horizon-metric-row">
+                                        <span>Trigger Detail:</span>
+                                        <strong id="dh-micro-detail">EMA 20 Dynamic Support</strong>
+                                    </div>
+                                    <div class="horizon-metric-row">
+                                        <span>Confluence Alignment:</span>
+                                        <strong style="color: #34d399;">ALIGNED (A+ Setup)</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- AI Thought Stream -->
+                            <div class="ai-stream-box" id="frey-ai-rationale">
+                                <p><span class="ai-stream-highlight">[Initializing]</span> Analyzing market context...</p>
+                            </div>
+
+                            <!-- 5-Step Action Execution Checklist -->
+                            <div class="frey-action-checklist">
+                                <div class="checklist-title">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                    Frey AI Trade Execution Plan (5-Step Checklist)
+                                </div>
+                                <div id="frey-plan-checklist">
+                                    <div class="checklist-step">1. กำลังประมวลผลจุดเข้าและแผนการเทรด...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Probability Meter & Trade Planning Blueprint -->
+                    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                        <!-- Probability Gauge Card -->
+                        <div class="frey-card">
+                            <div class="frey-card-header">
+                                <h3>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
+                                        <path d="M22 12A10 10 0 0 0 12 2v10z"/>
+                                        <path d="M2 12A10 10 0 0 0 12 22V12z"/>
+                                    </svg>
+                                    AI Direction Probability
+                                </h3>
+                            </div>
+                            <div class="probability-box">
+                                <div class="prob-circle-wrap">
+                                    <svg class="prob-svg" width="150" height="150" viewBox="0 0 160 160">
+                                        <defs>
+                                            <linearGradient id="cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#38bdf8"/>
+                                                <stop offset="100%" stop-color="#10b981"/>
+                                            </linearGradient>
+                                        </defs>
+                                        <circle class="prob-bg-ring" cx="80" cy="80" r="70"></circle>
+                                        <circle class="prob-meter-ring" id="frey-meter-ring" cx="80" cy="80" r="70"></circle>
+                                    </svg>
+                                    <div class="prob-center-text">
+                                        <div class="prob-percent" id="frey-main-prob">74%</div>
+                                        <div class="prob-subtext">BUY Bias</div>
+                                    </div>
+                                </div>
+
+                                <div class="prob-breakdown">
+                                    <div class="prob-chip buy">
+                                        <div class="lbl">BUY PROB</div>
+                                        <div class="val" id="frey-prob-buy">74%</div>
+                                    </div>
+                                    <div class="prob-chip sell">
+                                        <div class="lbl">SELL PROB</div>
+                                        <div class="val" id="frey-prob-sell">16%</div>
+                                    </div>
+                                    <div class="prob-chip wait">
+                                        <div class="lbl">WAIT</div>
+                                        <div class="val" id="frey-prob-wait">10%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Trade Planning Blueprint Matrix -->
+                        <div class="frey-card">
+                            <div class="frey-card-header">
+                                <h3>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    </svg>
+                                    Trade Planning Blueprint ($100 Account)
+                                </h3>
+                            </div>
+
+                            <div class="signal-box">
+                                <div class="signal-banner">
+                                    <span style="font-size: 0.8rem; color: #94a3b8;">Planned Action:</span>
+                                    <span class="signal-tag buy" id="frey-action-tag">BUY ORDER</span>
+                                </div>
+
+                                <div class="frey-blueprint-matrix">
+                                    <div class="blueprint-card entry">
+                                        <div class="blueprint-lbl">📍 Exact Entry Point</div>
+                                        <div class="blueprint-val" id="bp-val-entry" style="color: #38bdf8;">--</div>
+                                        <div class="blueprint-sub">Market / Pullback Entry</div>
+                                    </div>
+
+                                    <div class="blueprint-card lot">
+                                        <div class="blueprint-lbl">💼 Position Size</div>
+                                        <div class="blueprint-val" id="bp-val-lot" style="color: #34d399;">--</div>
+                                        <div class="blueprint-sub">Max Risk $3.00 (3%)</div>
+                                    </div>
+
+                                    <div class="blueprint-card sl">
+                                        <div class="blueprint-lbl">🛑 Stop Loss (SL)</div>
+                                        <div class="blueprint-val" id="bp-val-sl" style="color: #ef4444;">--</div>
+                                        <div class="blueprint-sub">Volatility Buffer</div>
+                                    </div>
+
+                                    <div class="blueprint-card tp1">
+                                        <div class="blueprint-lbl">🎯 Take Profit 1</div>
+                                        <div class="blueprint-val" id="bp-val-tp1" style="color: #34d399;">--</div>
+                                        <div class="blueprint-sub">1:1.5 R:R (Break-Even)</div>
+                                    </div>
+
+                                    <div class="blueprint-card tp2">
+                                        <div class="blueprint-lbl">🚀 Take Profit 2</div>
+                                        <div class="blueprint-val" id="bp-val-tp2" style="color: #a855f7;">--</div>
+                                        <div class="blueprint-sub">1:2.8 R:R (Major Target)</div>
+                                    </div>
+
+                                    <div class="blueprint-card inv">
+                                        <div class="blueprint-lbl">⚠️ Invalidation</div>
+                                        <div class="blueprint-val" id="bp-val-inv" style="color: #f59e0b;">--</div>
+                                        <div class="blueprint-sub">Cancel Plan if Breached</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 1rem; font-size: 0.72rem; color: #64748b; text-align: center;">
+                                🛡️ Institutional Guard: Stop loss moves to Break-Even at TP1
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 📜 Frey Autonomous Trade Journal & Performance Telemetry -->
+                <div class="frey-card frey-journal-card">
+                    <div class="frey-card-header" style="flex-wrap: wrap; gap: 12px;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            <h3 style="margin: 0; font-size: 1rem; color: #f8fafc;">Autonomous Trade Journal & Performance Telemetry</h3>
+                        </div>
+                        
+                        <!-- Filter Tabs & Actions -->
+                        <div class="journal-controls">
+                            <div class="journal-filters">
+                                <button class="journal-filter-btn active" data-filter="all" onclick="filterFreyTrades('all')">All History</button>
+                                <button class="journal-filter-btn" data-filter="active" onclick="filterFreyTrades('active')">⚡ Active</button>
+                                <button class="journal-filter-btn" data-filter="EURUSD" onclick="filterFreyTrades('EURUSD')">💶 EURUSD</button>
+                                <button class="journal-filter-btn" data-filter="ETHUSD" onclick="filterFreyTrades('ETHUSD')">⚡ ETHUSD</button>
+                            </div>
+                            <button class="journal-action-btn" onclick="simulateNewAITrade()" title="Simulate AI Trade based on current live plan">
+                                + Log Current Setup
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Journal Telemetry Stats Summary -->
+                    <div class="journal-stats-grid">
+                        <div class="journal-stat-card">
+                            <div class="stat-lbl">Total Executions</div>
+                            <div class="stat-val" id="stat-total-trades">14</div>
+                            <div class="stat-sub">Strict $3.00 Risk Cap</div>
+                        </div>
+                        <div class="journal-stat-card">
+                            <div class="stat-lbl">Win Rate (TP1/TP2)</div>
+                            <div class="stat-val win" id="stat-win-rate">71.4%</div>
+                            <div class="stat-sub" id="stat-win-sub">10 Wins / 4 Losses</div>
+                        </div>
+                        <div class="journal-stat-card">
+                            <div class="stat-lbl">Net Realized P&L</div>
+                            <div class="stat-val profit" id="stat-net-pnl">+$26.40</div>
+                            <div class="stat-sub" id="stat-net-sub">+26.4% on $100 Port</div>
+                        </div>
+                        <div class="journal-stat-card">
+                            <div class="stat-lbl">Profit Factor</div>
+                            <div class="stat-val" id="stat-profit-factor">3.20</div>
+                            <div class="stat-sub">Risk/Reward Expectancy</div>
+                        </div>
+                    </div>
+
+                    <!-- Journal Table -->
+                    <div class="journal-table-wrap">
+                        <table class="frey-journal-table">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>Ticket</th>
+                                    <th>Asset</th>
+                                    <th>Action</th>
+                                    <th>Lot Size</th>
+                                    <th>Entry</th>
+                                    <th>Stop Loss</th>
+                                    <th>Take Profit</th>
+                                    <th>PnL ($)</th>
+                                    <th>Status</th>
+                                    <th>Confluence</th>
+                                </tr>
+                            </thead>
+                            <tbody id="frey-journal-tbody">
+                                <!-- Populated dynamically by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Floating Bottom-Left AI Chat Button -->
+                <div class="frey-floating-chat-btn" onclick="toggleFreyChat()" title="Open Frey AI Real-Time Analyst (RTX 4050 / Local AI)">
+                    <div class="frey-btn-icon-pulse">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <span class="frey-btn-label">ASK FREY AI</span>
+                </div>
+
+                <!-- Draggable Floating AI Chat Window -->
+                <div id="frey-chat-modal" class="frey-chat-modal hidden">
+                    <!-- Header (Drag Handle) -->
+                    <div class="frey-chat-header" id="frey-chat-header">
+                        <div class="frey-chat-header-info">
+                            <div class="pulse-dot" style="width: 7px; height: 7px;"></div>
+                            <h4 class="frey-chat-header-title">Qwen 2.5 Strategic Co-Pilot</h4>
+                            <span class="frey-model-badge" id="frey-model-badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border-color: rgba(52, 211, 153, 0.4);">⚡ RTX 4050 / Qwen 2.5</span>
+                        </div>
+                        <div class="frey-chat-header-actions">
+                            <button class="frey-chat-ctrl-btn" onclick="toggleFreyChat()" title="Close">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <line x1="18" y1="6" x2="6" y2="18"/>
+                                    <line x1="6" y1="6" x2="18" y2="18"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Real-Time Context Strip (Shows Live Data Access) -->
+                    <div class="frey-chat-live-strip" id="frey-chat-strip-info">
+                        Asset: <strong>EURUSD (15m)</strong> | Price: <strong>--</strong> | Bias: <strong>--</strong>
+                    </div>
+
+                    <!-- Quick Prompt Chips -->
+                    <div class="frey-prompt-chips">
+                        <span class="frey-chip" onclick="sendFreyQuickPrompt('📊 วิเคราะห์ตลาดและคำนวณ Stop Loss, TP และ Lot Size ปัจจุบันให้หน่อย')">📊 คำนวณตลาดสด</span>
+                        <span class="frey-chip" onclick="sendFreyQuickPrompt('🪙 วิเคราะห์แนวโน้มราคาทองคำ XAUUSD และโซนราคาสำคัญวันนี้')">🪙 เจาะลึกทองคำ XAU</span>
+                        <span class="frey-chip" onclick="sendFreyQuickPrompt('⚡ วิเคราะห์สถานการณ์เหรียญ Crypto BTCUSD และ ETHUSD ตอนนี้')">⚡ สแกน BTC & Crypto</span>
+                        <span class="frey-chip" onclick="sendFreyQuickPrompt('🌐 ค้นหาข่าวเศรษฐกิจล่าสุดเกี่ยวกับเงินดอลลาร์และอัตราดอกเบี้ย Fed')">🌐 ค้นหาข่าวเศรษฐกิจ</span>
+                        <span class="frey-chip" onclick="promptWebReaderUrl()">🔗 อ่านเนื้อหาเว็บ URL</span>
+                    </div>
+
+                    <!-- Chat Body -->
+                    <div class="frey-chat-body" id="frey-chat-body">
+                        <!-- Messages will be populated here -->
+                    </div>
+
+                    <!-- Chat Input -->
+                    <div class="frey-chat-footer">
+                        <input
+                            type="text"
+                            id="frey-chat-input"
+                            class="frey-chat-input"
+                            placeholder="พิมพ์คำถามเกี่ยวกับกราฟ หรือวิเคราะห์ตลาด..."
+                            onkeypress="handleFreyChatKeyPress(event)"
+                        />
+                        <button class="frey-chat-send-btn" onclick="sendFreyChatMessage()" title="Send">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="frey-toast-container" class="frey-toast-container"></div>
+
+    <script src="Torine_AI/torine-config.js"></script>
+    <script src="Frey_AI/frey-config.js"></script>
+    <script src="Frey_AI/frey-dashboard.js"></script>
+    <script src="js/agent-registry.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

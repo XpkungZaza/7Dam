@@ -1,0 +1,83 @@
+# 🏛️ PROJECT ETADAM (PROJECT 7DAM) - AI AGENT COLLECTIVE PORTFOLIO
+
+## 📌 Project Overview & Vision
+This is a secret high-caliber portfolio project for university admission: **Project Etadam (Project 7Dam)**.
+It is a modern, unified Web Hub designed to interface with 7 specialized AI Agents ("Eta Agents"), each assigned a Greek codename and dedicated domain.
+
+---
+
+## 🤖 The 7 Eta Agents Blueprint
+
+1. **Alpha (Slot 01) - T.O.R.I.N.E.**
+   - **Full Name**: Tactical Omni-lingual Recursive Intelligence for Neo Education
+   - **Domain**: Neo Education & N5 Japanese Language Specialist (Tsundere Persona)
+   - **Status**: ACTIVE & Modularized (`Torine_AI/torine-config.js`)
+   - **Tech**: Groq API (`llama-3.1-8b-instant`) + Web Speech Synthesis (`ja-JP`)
+
+2. **Beta (Slot 02) - Z.E.N.I.T.H.**
+   - **Full Name**: Zero-error Enhanced Navigational Intelligence & Trajectory Heuristics
+   - **Domain**: Navigation, Trajectory Planning & Data Strategy
+   - **Status**: IN PROCESS (`Zenith_AI/`)
+
+3. **Gamma (Slot 03) - F.R.E.E.D.O.M.**
+   - **Full Name**: Fault Recognition & Execution Engine for Debugging, Optimization & Maintenance
+   - **Domain**: Software Engineering, Code Debugging & System Maintenance
+   - **Status**: IN PROCESS (`Freedom_AI/`)
+
+4. **Delta (Slot 04) - M.O.R.G.A.N.**
+   - **Full Name**: Multi-Objective Robotic Grid & Autonomous Nexus
+   - **Domain**: Robotics, Grid Networks & System Automation
+   - **Status**: IN PROCESS (`Morgan_AI/`)
+
+5. **Epsilon (Slot 05) - Agent 05**
+   - **Full Name**: Graduation Project AI (Classified)
+   - **Domain**: High-School Graduation Project AI Specialist (Name TBD)
+   - **Status**: IN PROGRESS / RESERVED
+
+6. **Zeta (Slot 06) - F.R.E.Y.**
+   - **Full Name**: Fault-tolerant Responsive Execution Yield
+   - **Domain**: Creative Design, Media & Content Synthesis
+   - **Status**: IN PROCESS (`Frey_AI/`)
+
+7. **Eta (Slot 07) - Agent 07**
+   - **Full Name**: Classified
+   - **Domain**: Cybersecurity & Threat Operations
+   - **Status**: LOCKED / RESERVED
+
+---
+
+## 💻 Current Codebase Architecture & Technical Progress
+
+- **Central Hub UI**: [index.html](file:///c:/Users/thana/Desktop/Dev-work/Project-7Dam/index.html) - Tech-Slate design system with 7 agent slots.
+- **Agent Registry**: [js/agent-registry.js](file:///c:/Users/thana/Desktop/Dev-work/Project-7Dam/js/agent-registry.js) - Central dynamic config manager for all 7 agents.
+- **Modular Agent Setup**:
+  - `Torine_AI/torine-config.js`: Isolated config for T.O.R.I.N.E.
+  - Subdirectories prepared for `Zenith_AI/`, `Freedom_AI/`, `Morgan_AI/`, `Frey_AI/`.
+- **App Controller**: [js/app.js](file:///c:/Users/thana/Desktop/Dev-work/Project-7Dam/js/app.js) - Dynamic routing, chat history management, and Groq API integration.
+
+---
+
+## 🎯 Prompt for Claude (Copy & Paste this to Claude):
+
+```markdown
+สวัสดี Claude! นี่คือบริบทและโครงสร้างของโปรเจกต์ลับสำหรับพอร์ตเข้ามหาลัยชื่อ "Project Etadam (Project 7Dam)"
+
+โปรเจกต์นี้เป็นการสร้าง Web Hub สำหรับรวบรวมสุดยอด AI ทั้ง 7 สายงาน (Eta Agents) โดยมีรหัสประจำตัวเป็นอักษรกรีก (Alpha - Eta):
+
+1. Alpha: T.O.R.I.N.E. (Tactical Omni-lingual Recursive Intelligence for Neo Education) - AI สอนภาษาญี่ปุ่น (Active / Modularized)
+2. Beta: Z.E.N.I.T.H. (Zero-error Enhanced Navigational Intelligence & Trajectory Heuristics) - AI สายวางแผนและระบบนำทาง (In process)
+3. Gamma: F.R.E.E.D.O.M. (Fault Recognition & Execution Engine for Debugging, Optimization & Maintenance) - AI สาย Debugging & Coding Engineer (In process)
+4. Delta: M.O.R.G.A.N. (Multi-Objective Robotic Grid & Autonomous Nexus) - AI สาย Robotics & Automation (In process)
+5. Epsilon: Agent 05 (Graduation Project AI) - AI สำหรับโปรเจกต์จบ (In progress / Reserved)
+6. Zeta: F.R.E.Y. (Fault-tolerant Responsive Execution Yield) - AI สาย Creative & Design (In process)
+7. Eta: Agent 07 - AI สาย Cybersecurity (Classified)
+
+สถาปัตยกรรมโค้ดปัจจุบัน:
+- หน้า Hub หลัก (`index.html`) แสดง 7 Agent Slots ด้วยสไตล์ Tech-Slate
+- มีระบบ Dynamic Registry (`js/agent-registry.js`) ลงทะเบียน Agent ทั้ง 7 ตัว
+- มีการแยกมอดูล `Torine_AI/torine-config.js` ออกจากไฟล์หลักอย่างเป็นระบบ
+- ใช้ Groq API (`llama-3.1-8b-instant`) และ Web Speech Synthesis (`ja-JP`)
+
+หน้าที่ของคุณ (Claude):
+ทำหน้าที่เป็น Developer หลักในการเขียน/แก้ไขโค้ด ตามทิศทางและแผนงานที่ได้รับการสรุปมา ให้ยึดมั่นในสถาปัตยกรรมแบบ Modular, โค้ดที่สะอาดสะอ้าน และ UI สไตล์ Tech-Slate ที่พรีเมียม
+```
